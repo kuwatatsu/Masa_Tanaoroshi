@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Masa Tanaoroshi</string>
+    <string name="hint">0</string>
+    <string name="toroku">登録</string>
+    <string name="label1">商品コード:</string>
+    <string name="label2">個数:</string>
+    <string-array name="function_array">
+        <item>商品登録</item>
+        <item>商品確認</item>
+        <item>クリア</item>
+    </string-array>
+</resources>

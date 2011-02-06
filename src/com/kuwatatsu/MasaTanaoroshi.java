@@ -1,5 +1,7 @@
 package com.kuwatatsu;
 
+import java.io.File;
+
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.ActivityNotFoundException;
@@ -46,8 +48,23 @@ public class MasaTanaoroshi extends ListActivity implements OnItemClickListener 
 
 			break;
 		case KAKUNIN:
+			Intent intent_kakunin = new Intent(this, Kakunin.class);
+			try {
+				startActivity(intent_kakunin);
+            } catch (ActivityNotFoundException e) {
+                new AlertDialog.Builder(MasaTanaoroshi.this)
+                        .setTitle("Kakunin Activity not found.")
+                        .setMessage("Error")
+                        .setPositiveButton("OK", null)
+                        .show();
+            }
 			break;
 		case CLEAR:
+			String fileName = "/sdcard/" + getPackageName() + "/sample.txt";  
+
+			File file = new File(fileName);
+			file.delete();
+
 			break;
 		default:
 				break;

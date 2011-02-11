@@ -7,11 +7,16 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.Spinner;
@@ -34,8 +39,27 @@ public class Toroku extends Activity implements OnClickListener {
 
 	}
 
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+    
+    @Override
+    protected void onPause() {
+    	super.onPause();
+    	getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+
+	
 	@Override
 	public void onClick(View arg0) {
+		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+		String tenpo = prefs.getString("tenpo", null);
+		Date today_date = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");
+		String today_string = sdf.format(today_date);
+
 		TextView shohinNo = (TextView)findViewById(R.id.code);
 		Spinner spinner = (Spinner)findViewById(R.id.spinner1);
 		String fileName = "/sdcard/" + getPackageName() + "/sample.txt";  
@@ -54,7 +78,7 @@ public class Toroku extends Activity implements OnClickListener {
 		try {
 			osw = new OutputStreamWriter(fos, "UTF-8");
 			bw = new BufferedWriter(osw);  
-			bw.write(shohinNo.getText() + "," + (String)spinner.getSelectedItem() + "\n");
+			bw.write(shohinNo.getText() + "," + (String)spinner.getSelectedItem() + "," + tenpo + "," + today_string + "\n");
 			bw.flush();
 			bw.close();
 		} catch (UnsupportedEncodingException e) {

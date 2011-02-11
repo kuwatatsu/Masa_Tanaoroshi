@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference android:key="tenpo" android:title="店舗コード"></EditTextPreference>
+    <EditTextPreference android:key="mail_addr" android:title="送信先"></EditTextPreference>
+</PreferenceScreen>

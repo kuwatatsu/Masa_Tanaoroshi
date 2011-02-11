@@ -10,6 +10,7 @@ import java.io.UnsupportedEncodingException;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 public class Kakunin extends Activity {
@@ -54,4 +55,16 @@ public class Kakunin extends Activity {
 		
 	}
 
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+    
+    @Override
+    protected void onPause() {
+    	super.onPause();
+    	getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+    }
+	
 }

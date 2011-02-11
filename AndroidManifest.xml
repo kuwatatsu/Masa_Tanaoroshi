@@ -14,6 +14,7 @@
         </activity>
         <activity android:name=".Toroku" android:screenOrientation="landscape"></activity>
         <activity android:name=".Kakunin" android:screenOrientation="landscape"></activity>
+        <activity android:name="Setting" android:screenOrientation="landscape"></activity>
 
     </application>
 

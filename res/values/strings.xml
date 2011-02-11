@@ -6,9 +6,11 @@
     <string name="label1">商品コード:</string>
     <string name="label2">個数:</string>
     <string-array name="function_array">
-        <item>商品登録</item>
-        <item>商品確認</item>
+        <item>廃棄商品登録</item>
+        <item>廃棄商品確認</item>
+        <item>データ送信</item>
         <item>クリア</item>
+        <item>設定</item>
     </string-array>
     <string-array name="number">
         <item>0</item>
@@ -31,5 +33,17 @@
         <item>17</item>
         <item>18</item>
         <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+        <item>23</item>
+        <item>24</item>
+        <item>25</item>
+        <item>26</item>
+        <item>27</item>
+        <item>28</item>
+        <item>29</item>
     </string-array>
+    <string name="tenpo_label">店舗コード:</string>
+    <string name="mailaddr_label">送信先:</string>
 </resources>
